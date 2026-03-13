@@ -55,7 +55,7 @@ R_total = 0.5 × R_format + 1.0 × R_acc + 2.0 × R_pareto
 
 **步骤一：格式检查**
 - 检查输出是否包含```python代码块或&lt;python&gt;标签
-- 满足格式返回1.0，否则返回0.0
+- 满足格式返回0.5，否则返回0.0
 
 **步骤二：代码提取与执行**
 - 从模型输出中提取Python代码块
@@ -66,7 +66,7 @@ R_total = 0.5 × R_format + 1.0 × R_acc + 2.0 × R_pareto
 **步骤三：帕累托最优性验证**
 - 执行verify.py验证脚本
 - 检查返回结果是否包含"True"
-- 验证通过返回1.0，否则返回0.0
+- 验证通过返回2.0，否则返回0.0
 
 ### 2.3 文件集成
 
@@ -106,16 +106,6 @@ verify.py需满足以下要求：
 - 输出"True"表示帕累托最优，"False"表示被支配
 
 ## 步骤四：执行训练
-
-使用提供的训练脚本启动主训练过程：
-
-```bash
-# 运行基线版本（FullKL / Reinforce++）
-nohup sh -x training_scripts/run_withKL &
-
-# 运行Partial KL版本
-nohup sh -x training_scripts/run_partialKL.sh &
-```
 
 ### 训练参数配置示例
 
